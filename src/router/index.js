@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "../views/Home.vue";
+import App from "../App.vue";
 import AboutView from "../views/AboutView.vue";
 import Calculator from "../views/Calculator.vue";
 import CityList from "../views/CityList.vue";
@@ -9,8 +9,13 @@ import Error from "../views/Error.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "App",
+    component: App,
+  },
+  {
+    path: "/index.html",
+    name: "App",
+    component: App,
   },
   {
     path: "/about",
