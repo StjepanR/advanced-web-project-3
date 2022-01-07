@@ -28,9 +28,6 @@ const routes = [
     component: CityList,
   },
   {
-    path: '/api/cities'
-  },
-  {
     path: "/:pathMatch(.*)*",
     name: "Error",
     component: Error,

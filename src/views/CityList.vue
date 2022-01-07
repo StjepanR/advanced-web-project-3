@@ -19,33 +19,38 @@ export default {
   },
   methods: {
     async toggleMarked(city) {
+      console.log("toggle marked");
+      const cityToToggle = await this.fetchCity(city);
 
-      const cityToToggle = await this.fetchCity(city)
-      const updatedCity = {...cityToToggle, marked: !cityToToggle.marked}
+      const updatedCity = { ...cityToToggle}
+      updatedCity.marked = !cityToToggle.marked
 
-      const res = await fetch(`api/cities/${city}`, {
-        method: 'PUT',
+      const res = await fetch(`http://localhost:8085/api/cities/${city}`, {
+        method: "PUT",
         headers: {
-          'Content-type': 'application/json',
+          "Content-type": "application/json",
         },
         body: JSON.stringify(updatedCity)
       })
 
-      const data = await res.json()
+      const data = await res.json();
+      console.log(data)
+      this.cities = data;
 
-      this.cities = this.cities.map(cityI => cityI.id == city ? {...cityI, marked: data.marked} : cityI)
     },
     async fetchCity(city) {
+      console.log("fetch city");
 
-      const res = await fetch(`api/cities/${city}`)
+      const res = await fetch(`http://localhost:8085/api/cities/${city}`);
 
-      const data = await res.json()
+      const data = await res.json();
 
       return data
     },
     async fetchCities() {
+      console.log("fetch cities");
 
-      const res = await fetch("api/cities");
+      const res = await fetch("http://localhost:8085/api/cities");
 
       const data = await res.json();
 
