@@ -10,7 +10,7 @@
 </template>
 
 <script>
-console.log("changing city")
+
 export default {
   name: "City",
   props: {
