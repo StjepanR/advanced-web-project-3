@@ -18,8 +18,7 @@ fs.readFile("db.json", function (err, data) {
   jsonCities = JSON.parse(jsonData);
 });
 
-//here we are configuring dist to serve app files
-app.use('/', serveStatic(path.join(__dirname, '/dist')))
+
 
 app.get("/api/cities", function (req, res) {
     res.json(jsonCities);
@@ -42,7 +41,8 @@ app.get(/.*/, function (req, res) {
   res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
 
-
+//here we are configuring dist to serve app files
+app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
 const port = process.env.PORT || 8085
 app.listen(port, function () {

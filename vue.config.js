@@ -1,12 +1,11 @@
 module.exports = {
-  devServer: {
-    proxy: {
-      '^/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-        logLevel: 'debug',
-        pathRewrite: { '^/api': '/' },
-      },
-    },
-  },
+    chainWebpack: config => {
+        config.plugin('html').tap((args) => {
+            args[0].minify = {
+                ...args[0].minify,
+                removeAttributeQuotes: false
+            }
+            return args
+        })
+    }
 }

@@ -8,7 +8,7 @@ import Error from "../views/Error.vue";
 
 const routes = [
   {
-    path: "",
+    path: "/",
     name: "Home",
     component: Home,
   },
