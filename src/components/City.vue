@@ -3,7 +3,6 @@
        :class="[city.marked ? 'marked' : '', 'city']">
     <h3>
       {{ city.id }}
-      <i class="fas fa-times"></i>
     </h3>
     <p>{{ city.admin_name }}</p>
   </div>

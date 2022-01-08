@@ -25,7 +25,7 @@ export default {
       const updatedCity = { ...cityToToggle}
       updatedCity.marked = !cityToToggle.marked
 
-      const res = await fetch(`https://advanced-web-project-3.herokuapp.com//api/cities/${city}`, {
+      const res = await fetch(`https://advanced-web-project-3.herokuapp.com/api/cities/${city}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -41,7 +41,7 @@ export default {
     async fetchCity(city) {
       console.log("fetch city");
 
-      const res = await fetch(`https://advanced-web-project-3.herokuapp.com//api/cities/${city}`);
+      const res = await fetch(`https://advanced-web-project-3.herokuapp.com/api/cities/${city}`);
 
       const data = await res.json();
 
@@ -50,7 +50,7 @@ export default {
     async fetchCities() {
       console.log("fetch cities");
 
-      const res = await fetch("https://advanced-web-project-3.herokuapp.com//api/cities");
+      const res = await fetch("https://advanced-web-project-3.herokuapp.com/api/cities");
 
       const data = await res.json();
 
