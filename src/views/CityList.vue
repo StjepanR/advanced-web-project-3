@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     async toggleMarked(city) {
-      console.log("toggle marked");
       const cityToToggle = await this.fetchCity(city);
 
       const updatedCity = { ...cityToToggle}
@@ -34,12 +33,10 @@ export default {
       })
 
       const data = await res.json();
-      console.log(data)
-      this.cities = data;
 
+      this.cities = data;
     },
     async fetchCity(city) {
-      console.log("fetch city");
 
       const res = await fetch(`https://advanced-web-project-3.herokuapp.com/api/cities/${city}`);
 
@@ -48,7 +45,6 @@ export default {
       return data
     },
     async fetchCities() {
-      console.log("fetch cities");
 
       const res = await fetch("https://advanced-web-project-3.herokuapp.com/api/cities");
 
